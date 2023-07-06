@@ -8,7 +8,7 @@ public class App {
         System.out.print("Enter the base: ");
         int base = scanner.nextInt();
 
-        //Ask for the exponent
+        //Ask for the power
         System.out.print("Enter the power: ");
         int power = scanner.nextInt();
 
