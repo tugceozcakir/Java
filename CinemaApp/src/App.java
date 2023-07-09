@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -90,7 +88,7 @@ public class App {
                 System.out.println("Invalid category selection.");
             }
         }
-        
+
         // Display the sorted category list
         System.out.println("Sorted category list:");
         for (int i = 0; i < selectedCategories.size(); i++) {
@@ -106,7 +104,7 @@ public class App {
         int publishYear = scanner.nextInt();
         scanner.nextLine();
 
-        // Create movie times
+        //Create seance
         List<MovieTimes> showHours = new ArrayList<>();
         System.out.println("Enter the number of show times:");
         int showHourCount = scanner.nextInt();
