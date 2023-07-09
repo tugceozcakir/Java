@@ -15,12 +15,12 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public int getFilmCount() {
+    public int getMovieCount() {
         return movieCount;
     }
 
-    public void setFilmCount(int filmCount) {
-        this.movieCount = filmCount;
+    public void incrementMovieCount() {
+        movieCount++;
     }
 
     @Override

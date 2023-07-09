@@ -9,7 +9,6 @@ public class App {
     private static boolean isAdmin = false; //Admin status
     private static List<Category> categoryOptions = new ArrayList<>(); // Category options
 
-
     public static void main(String[] args) throws Exception {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,7 +24,7 @@ public class App {
         // Find out what type of login the user is logged in
         System.out.println("Are you an admin or a client? (1: admin, 2: client):");
         int userType = scanner.nextInt();
-        scanner.nextLine(); // Consume the newline character
+        scanner.nextLine();
 
         if (userType == 1) {
             // Admin
@@ -50,6 +49,9 @@ public class App {
                 isAdmin = false;
                 System.out.println("Switched to client account.");
                 showMovie(scanner);
+            } else{
+                isAdmin = true;
+                addMovie(scanner);
             }
         }
     }
@@ -126,6 +128,10 @@ public class App {
         // Create movie
         Movie movie = new Movie(selectedCategories, selectedPlatforms, movieName, directorName, publishYear, showHours);
         movieList.add(movie);
+        // Increment movie count for selected categories
+        for (Category category : selectedCategories) {
+            category.incrementMovieCount();
+        }
         System.out.println("\nNew movie added:");
         System.out.println(movie.toString());
     }
@@ -166,11 +172,7 @@ public class App {
                 boolean foundMovies = false;
                 for (Movie movie : movieList) {
                     if (movie.getPlatformList().contains(selectedPlatform) && movie.getCategoryList().contains(selectedCategory)) {
-                        System.out.println("Movie Name: " + movie.getMovieName());
-                        System.out.println("Director Name: " + movie.getDirectorName());
-                        System.out.println("Publish Year: " + movie.getPublishYear());
-                        System.out.println("Show Hours: " + movie.getShowHours());
-                        System.out.println();
+                        System.out.println(movie.toString());
                         foundMovies = true;
                     }
                 }
