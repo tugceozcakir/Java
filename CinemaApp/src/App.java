@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import model.Category;
+import model.Movie;
+import model.MovieTimes;
+import model.Platform;
+
 public class App {
     private static List<Movie> movieList = new ArrayList<>(); // To keep the movie list
     private static boolean isAdmin = false; //Admin status

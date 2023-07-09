@@ -1,3 +1,4 @@
+package model;
 public class MovieTimes {
        private String hour;
 
