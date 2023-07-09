@@ -32,14 +32,13 @@ public class App {
             isAdmin = true; // Set admin status to true
             addMovie(scanner);
             
-            } else if (userType == 2) {
-                // Client
-                System.out.println("You are logged in as client.");
-                showMovie(scanner);
-
-            } else {
-                System.out.println("Invalid user type.");
-            }
+        } else if (userType == 2) {
+            // Client
+            System.out.println("You are logged in as client.");
+            showMovie(scanner);
+        } else {
+            System.out.println("Invalid user type.");
+        }
         if (isAdmin) {
             System.out.println("Do you want to switch to client account? (1: Yes, 0: No):");
             int switchToClient = scanner.nextInt();
@@ -69,7 +68,6 @@ public class App {
             selectedPlatforms.add(platform);
         }
 
-
         //Create categories
         List<Category> selectedCategories = new ArrayList<>();
         // Display category options
@@ -92,11 +90,7 @@ public class App {
                 System.out.println("Invalid category selection.");
             }
         }
-
-
-        // Sort the category list
-        Collections.sort(selectedCategories, Comparator.comparing(Category::getCategoryName));
-
+        
         // Display the sorted category list
         System.out.println("Sorted category list:");
         for (int i = 0; i < selectedCategories.size(); i++) {
