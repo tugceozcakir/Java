@@ -18,7 +18,6 @@ public class Movie {
         this.showHours = showHours;
     }
 
-
     public List<Category> getCategoryList() {
         return categoryList;
     }
