@@ -2,7 +2,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
-
 import model.BankAccount;
 import model.Branch;
 import model.DanceCourse;
@@ -45,7 +44,7 @@ public class App {
         
         //Create Instructor
         List<String> branchNames = new ArrayList<>();
-        branchNames.add("Bachata");
+        branchNames.add(branch.getName());
 
         BigDecimal salary = BigDecimal.valueOf(10000);
 
