@@ -52,6 +52,12 @@ public class Player {
           " \t\t Sağlık: " + getHealthy() + "\t\t Money: " + getMoney());
      }
 
+     public void selectLog() {
+          System.out.println("-----Bölgeler-----");
+          System.out.println("1- Güvenli ev");
+          System.out.println("1-  Mağaza");
+
+     }
      public void initPlayer(GameChar gameChar){
           this.setDamage(gameChar.getDamage());
           this.setHealthy(gameChar.getHealth());
