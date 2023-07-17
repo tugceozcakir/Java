@@ -1,13 +1,23 @@
 package model;
+
 import java.util.List;
+import java.util.Set;
 
 public class Lecture {
+
     private String name;
+
     private Instructor instructor;
+
     private Branch branch;
-    private int capacity;
-    private List<LectureScheduleTime> lectureScheduleTimeList;
+
+    private int capacity; //Homework
+
+    private Set<LectureScheduleTime> lectureScheduleTimeSet;
+
     private List<Student> studentList;
+    private Set<Student> studentsEnrolled; //Homework
+
 
     public String getName() {
         return name;
@@ -41,12 +51,20 @@ public class Lecture {
         this.capacity = capacity;
     }
 
-    public List<LectureScheduleTime> getLectureScheduleTimeList() {
-        return lectureScheduleTimeList;
+    public Set<Student> getStudentsEnrolled() {
+        return studentsEnrolled;
     }
 
-    public void setLectureScheduleTimeList(List<LectureScheduleTime> lectureScheduleTimeList) {
-        this.lectureScheduleTimeList = lectureScheduleTimeList;
+    public void setStudentsEnrolled(Set<Student> studentsEnrolled) {
+        this.studentsEnrolled = studentsEnrolled;
+    }
+
+    public Set<LectureScheduleTime> getLectureScheduleTimeSet() {
+        return lectureScheduleTimeSet;
+    }
+
+    public void setLectureScheduleTimeSet(Set<LectureScheduleTime> lectureScheduleTimeSet) {
+        this.lectureScheduleTimeSet = lectureScheduleTimeSet;
     }
 
     public List<Student> getStudentList() {
@@ -57,11 +75,23 @@ public class Lecture {
         this.studentList = studentList;
     }
 
+    //Homework
+    public void incrementStudentsEnrolled() {
+        this.capacity++;
+    }
+    //Homework
+    public void decrementStudentsEnrolled() {
+        this.capacity--;
+    }
+
     @Override
     public String toString() {
         return "Lecture [name=" + name + ", instructor=" + instructor + ", branch=" + branch + ", capacity=" + capacity
-                + ", lectureScheduleTimeList=" + lectureScheduleTimeList + ", studentList=" + studentList + "]";
+                + ", studentsEnrolled=" + studentsEnrolled + ", lectureScheduleTimeSet=" + lectureScheduleTimeSet
+                + ", studentList=" + studentList + "]";
     }
 
+
     
+  
 }

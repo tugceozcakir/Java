@@ -1,14 +1,17 @@
 package model;
+
 public class LectureScheduleTime {
-    private Day dayOfWeek;
+
+    private Day day;
+
     private String time;
 
-    public Day getDayOfWeek() {
-        return dayOfWeek;
+    public Day getDay() {
+        return day;
     }
 
-    public void setDayOfWeek(Day dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
+    public void setDay(Day day) {
+        this.day = day;
     }
 
     public String getTime() {
@@ -21,7 +24,9 @@ public class LectureScheduleTime {
 
     @Override
     public String toString() {
-        return "LectureScheduleTime [dayOfWeek=" + dayOfWeek + ", time=" + time + "]";
+        return "LectureScheduleTime{" +
+                "day=" + day +
+                ", time='" + time + '\'' +
+                '}';
     }
-    
 }

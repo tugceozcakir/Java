@@ -1,15 +1,48 @@
 package model;
+
 import java.util.List;
 
 public class DanceCourse {
+
     private String name;
+
     private String address;
+
     private String founder;
+
     private String taxNumber;
+
     private String taxOffice;
+
+    private int capacity; //Homework
+
     private List<BankAccount> bankAccountList;
+
     private List<PaymentMovement> paymentMovementList;
+
     private List<Instructor> instructorList;
+
+    private List<Student> studentList;
+    private List<Lecture> lectureList;
+
+    //DanceCourse course = new DansCourse();
+
+
+    public DanceCourse() {
+    }
+
+    public DanceCourse(String name) {
+        this.name = name;
+    }
+
+    public DanceCourse(String name, String taxNumber, String taxOffice, int capacity) {
+        this.name = name;
+        this.taxNumber = taxNumber;
+        this.taxOffice = taxOffice;
+        this.capacity = capacity;
+    }
+
+    //DanceCourse course = new DansCourse(name,taxNumber,taxOffice);
 
     public String getName() {
         return name;
@@ -51,6 +84,14 @@ public class DanceCourse {
         this.taxOffice = taxOffice;
     }
 
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
     public List<BankAccount> getBankAccountList() {
         return bankAccountList;
     }
@@ -75,12 +116,29 @@ public class DanceCourse {
         this.instructorList = instructorList;
     }
 
+    public List<Student> getStudentList() {
+        return studentList;
+    }
+
+    public void setStudentList(List<Student> studentList) {
+        this.studentList = studentList;
+    }
+
+    public List<Lecture> getLectureList() {
+        return lectureList;
+    }
+
+    public void setLectureList(List<Lecture> lectureList) {
+        this.lectureList = lectureList;
+    }
+
     @Override
     public String toString() {
         return "DanceCourse [name=" + name + ", address=" + address + ", founder=" + founder + ", taxNumber="
-                + taxNumber + ", taxOffice=" + taxOffice + ", bankAccountList=" + bankAccountList
-                + ", paymentMovementList=" + paymentMovementList + ", instructorList=" + instructorList + "]";
+                + taxNumber + ", taxOffice=" + taxOffice + ", capacity=" + capacity + ", bankAccountList="
+                + bankAccountList + ", paymentMovementList=" + paymentMovementList + ", instructorList="
+                + instructorList + ", studentList=" + studentList + ", lectureList=" + lectureList + "]";
     }
 
-    
+   
 }

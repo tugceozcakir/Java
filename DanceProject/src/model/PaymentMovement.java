@@ -1,11 +1,14 @@
 package model;
+
 import java.math.BigDecimal;
 
 public class PaymentMovement {
+
     private BankAccount bankAccount;
     private String description;
     private MovementType movementType;
     private BigDecimal amount;
+
 
     public BankAccount getBankAccount() {
         return bankAccount;
@@ -41,9 +44,11 @@ public class PaymentMovement {
 
     @Override
     public String toString() {
-        return "PaymentMovement [bankAccount=" + bankAccount + ", description=" + description + ", movementType="
-                + movementType + ", amount=" + amount + "]";
+        return "PaymentMovement{" +
+                "bankAccount=" + bankAccount +
+                ", description='" + description + '\'' +
+                ", movementType=" + movementType +
+                ", amount=" + amount +
+                '}';
     }
-
-    
 }

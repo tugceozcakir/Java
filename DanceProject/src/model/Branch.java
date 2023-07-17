@@ -1,5 +1,7 @@
 package model;
+
 public class Branch {
+
     private String name;
 
     public String getName() {
@@ -12,7 +14,8 @@ public class Branch {
 
     @Override
     public String toString() {
-        return "Branch [name=" + name + "]";
+        return "Branch{" +
+                "name='" + name + '\'' +
+                '}';
     }
-    
 }

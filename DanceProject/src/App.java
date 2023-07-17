@@ -1,94 +1,85 @@
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.ArrayList;
-import java.util.List;
 import model.BankAccount;
 import model.Branch;
 import model.DanceCourse;
-import model.Day;
-import model.Instructor;
 import model.Lecture;
-import model.LectureScheduleTime;
-import model.MovementType;
-import model.PaymentMovement;
 import model.Sex;
 import model.Student;
 import service.BankAccountService;
 import service.BranchService;
 import service.DanceCourseService;
-import service.InstructorService;
-import service.LectureScheduleTimeService;
+import service.InitialDataService;
 import service.LectureService;
-import service.PaymentMovementService;
 import service.StudentService;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.*;
+
+
 public class App {
+
+
     public static void main(String[] args) throws Exception {
-        BankAccountService bankAccountService = new BankAccountService();
-        BranchService branchService = new BranchService();
-        InstructorService instructorService = new InstructorService();
-        LectureScheduleTimeService lectureScheduleTimeService = new LectureScheduleTimeService();
-        PaymentMovementService paymentMovementService = new PaymentMovementService();
-        StudentService studentService = new StudentService();
-        LectureService lectureService = new LectureService();
+
+
         DanceCourseService danceCourseService = new DanceCourseService();
+        BankAccountService bankAccountService = new BankAccountService();
+        LectureService lectureService = new LectureService();
+        BranchService branchService = new BranchService();
+        StudentService studentService = new StudentService();
 
-        //Create Bank Account
-        BigDecimal initialAccount = new BigDecimal("300000.00");
-        BankAccount bankAccount = bankAccountService.createBankAccount("Yapı Kredi Bankası", "1234567", "Özçakır Dance School", initialAccount);
-        System.out.println(bankAccount.toString());
+        List<Branch> branchList = InitialDataService.loadInitialDataForBranch();
 
-        //Create Branch
-        Branch branch = branchService.createBranch("Salsa");
-        System.out.println(branch.toString());
-        
-        //Create Instructor
-        List<String> branchNames = new ArrayList<>();
-        branchNames.add(branch.getName());
+        System.out.println(branchList);
 
-        BigDecimal salary = BigDecimal.valueOf(10000);
 
-        Instructor instructor = instructorService.createInstructor("Tuğçe Özçakır", branchNames, 24, Sex.FEMALE, salary);
-        System.out.println(instructor.toString());
+        DanceCourse danceCourse = danceCourseService.createDanceCourse("Özçakır Dance School", "Eskişehir",
+                "Tuğçe Özçakır", "98728998789", "Eskişehir", 50);
 
-        //Create Lecture Schedule Time
-        LectureScheduleTime lectureScheduleTime = lectureScheduleTimeService.createLectureScheduleTime(Day.FRIDAY, "21:30");
-        System.out.println(lectureScheduleTime.toString());
-
-        //Create Payment Movement
-        PaymentMovement paymentMovement = paymentMovementService.createPaymentMovement(bankAccount, "Payment description", MovementType.INCOME, initialAccount);
-        System.out.println(paymentMovement.toString());
-
-        //Create Student
-        BigDecimal contractAmount = new BigDecimal("500.00");
-        Date startDate = new Date();
-        Date endDate = new Date();
-        
-        Student student = studentService.createStudent("Egemen Kaya", 30, Sex.MALE, false, contractAmount, startDate, endDate);
-        System.out.println(student.toString());
-
-        //Create Lecture
-        List<LectureScheduleTime> scheduleTimeList = new ArrayList<>();
-        scheduleTimeList.add(lectureScheduleTime);
-        
-        List<Student> studentList = new ArrayList<>();
-        studentList.add(student);
-
-        Lecture lecture = lectureService.createLecture("Salsa", instructor, branch, 20, scheduleTimeList, studentList);
-        System.out.println(lecture.toString());
-
-        //Create Dance Course
-        List<BankAccount> bankAccountList = new ArrayList<>();
-        bankAccountList.add(bankAccount);
-
-        List<PaymentMovement> paymentMovementList = new ArrayList<>();
-        paymentMovementList.add(paymentMovement);
-
-        List<Instructor> instructorList = new ArrayList<>();
-        instructorList.add(instructor);
-
-        DanceCourse danceCourse = danceCourseService.createDanceCourse("Özçakır Dance School", "Eskişehir Tepebaşı/Yenibağlar", "Feyza Çelik Orbay",
-         "192848274", "TaxOffice", bankAccountList, paymentMovementList, instructorList);
         System.out.println(danceCourse.toString());
+
+        BankAccount bankAccount = bankAccountService.createBankAccount("T.C. ZİRAAT BANKASI",
+                "ÖZÇAKIR LİMİTED ŞİRKETİ", "TR1200002902343", new BigDecimal(100000));
+
+        danceCourseService.createBankAccountToDanceCourse(danceCourse, bankAccount, 50);
+        System.out.println(danceCourse);
+
+        BankAccount bankAccount1 = bankAccountService.createBankAccount("T.C. ZİRAAT BANKASI",
+                "ÖZÇAKIR LİMİTED ŞİRKETİ", "TR1200002902343", new BigDecimal(200000));
+
+
+        danceCourseService.createBankAccountToDanceCourse(danceCourse, bankAccount1, 50);
+        System.out.println(danceCourse);
+
+        branchService.createBranchToBranchPool(branchList, "Bachata");
+        System.out.println(branchList);
+
+        //Homework
+        Branch branchForLecture = branchList.get(0);
+        Lecture newLecture = lectureService.createLecture("Bachata for Beginners", branchForLecture, 1);
+        System.out.println("Yeni ders eklendi: " + newLecture.getName() + " - " + newLecture.getBranch().getName());
+
+
+        LocalDate startDate = LocalDate.of(2023, 7, 1);
+        LocalDate endDate = LocalDate.of(2023, 8, 1);
+        Student student1 = studentService.createStudent("Egemen Kaya", 32, Sex.MALE, false, new BigDecimal(10000),
+                java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
+
+        Student student2 = studentService.createStudent("Anıl Çalışkan", 32, Sex.MALE, false, new BigDecimal(10000),
+                java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
+        Student student3 = studentService.createStudent("Ayşe Dağ", 32, Sex.MALE, false, new BigDecimal(10000),
+                java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
+        Student student4 = studentService.createStudent("Ezgi Ermiş", 32, Sex.MALE, false, new BigDecimal(10000),
+                java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
+
+                List<Student> students = Arrays.asList(student1, student2, student3, student4);
+        for (Student student : students) {
+            lectureService.enrollStudentToLecture(newLecture, student);
+
+        }
+        System.out.println(student1.toString());
+
+
     }
+
 }
