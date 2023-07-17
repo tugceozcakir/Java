@@ -52,6 +52,8 @@ public class LectureService {
         }
 
         lecture.getStudentsEnrolled().add(student);
+        System.out.println(student.getName() + " adlı yeni öğrenci başarıyla eklendi.");
+
         return true;
     }
 

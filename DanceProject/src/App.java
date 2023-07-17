@@ -56,15 +56,18 @@ public class App {
 
         //Homework
         Branch branchForLecture = branchList.get(0);
-        Lecture newLecture = lectureService.createLecture("Bachata for Beginners", branchForLecture, 1);
+        Lecture newLecture = lectureService.createLecture("Bachata for Beginners", branchForLecture, 2);
         System.out.println("Yeni ders eklendi: " + newLecture.getName() + " - " + newLecture.getBranch().getName());
 
 
         LocalDate startDate = LocalDate.of(2023, 7, 1);
         LocalDate endDate = LocalDate.of(2023, 8, 1);
+
         Student student1 = studentService.createStudent("Egemen Kaya", 32, Sex.MALE, false, new BigDecimal(10000),
                 java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
 
+        System.out.println(student1.toString());
+        
         Student student2 = studentService.createStudent("Anıl Çalışkan", 32, Sex.MALE, false, new BigDecimal(10000),
                 java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
         Student student3 = studentService.createStudent("Ayşe Dağ", 32, Sex.MALE, false, new BigDecimal(10000),
@@ -72,14 +75,11 @@ public class App {
         Student student4 = studentService.createStudent("Ezgi Ermiş", 32, Sex.MALE, false, new BigDecimal(10000),
                 java.sql.Date.valueOf(startDate), java.sql.Date.valueOf(endDate));
 
-                List<Student> students = Arrays.asList(student1, student2, student3, student4);
+        List<Student> students = Arrays.asList(student1, student2, student3, student4);
+        
         for (Student student : students) {
             lectureService.enrollStudentToLecture(newLecture, student);
-
         }
-        System.out.println(student1.toString());
-
-
     }
 
 }
