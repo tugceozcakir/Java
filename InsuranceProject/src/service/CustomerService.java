@@ -11,6 +11,7 @@ public class CustomerService {
     AgencyService agencyService = new AgencyService();
     InsuranceCompanyService insuranceCompanyService = new InsuranceCompanyService();
     PaymentMovementService paymentMovementService = new PaymentMovementService();
+    PolicyService policyService = new PolicyService();
 
     public Customer createCustomer(String name, CustomerTypeEnum customerTypeEnum) {
         Customer customer = new Customer();
@@ -58,7 +59,16 @@ public class CustomerService {
             customer.setPaymentMovementList(paymentMovementList);
         }
     }
+    public void addPolicyToCustomer(Customer customer, Policy policy){
+        if(customer.getPolicyList() != null){
+            customer.getPolicyList().add(policy);
+        } else {
+            ArrayList<Policy> policyList = new ArrayList<>();
+            policyList.add(policy);
+            customer.setPolicyList(policyList);
 
+        }
+    }
     public void addVehicleToCustomer(Vehicle vehicle, Customer customer) {
         if (customer.getVehicleList() != null) {
             customer.getVehicleList().add(vehicle);
@@ -121,6 +131,18 @@ public class CustomerService {
                                         insuranceCompanyService.addPaymentMovementToInsuranceCompany(insuranceCompanyIncomingPayment, insuranceCompany);
                                         insuranceCompanyService.addPaymentMovementToInsuranceCompany(insuranceCompanyOutgoingPayment, insuranceCompany);
                                         agencyService.addPaymentMovementToAgency(agencyCommissionPayment, agency);
+
+                                        Policy policy = policyService.createPolicy(proposal.getCompany(),
+                                                proposal.getVehicle(), discountedPrice, proposal.getStartDate(),
+                                                proposal.getEndDate());
+                                        addPolicyToCustomer(customer, policy);
+                                        proposal1.setApproved(true);
+                                        System.out.println(proposal.getVehicle().getPlate() + " için " + proposal.getCompany().getName()
+                                                + " şirketinden " + discountedPrice + " TL karşılığında poliçe alındı.");
+                                        System.out.println("Poliçe başlangıç tarihi: " + proposal.getStartDate());
+                                        System.out.println("Poliçe bitiş tarihi: " + proposal.getEndDate());
+                                        System.out.println("Poliçe sahibi: " + customer.getName());
+                                        System.out.println("Poliçe komisyon ödemesi: " + commissionAmount);
 
                                         proposal1.setApproved(true);
                                         System.out.println("İşlem başarılı. Sigorta işleminiz yapılmıştır.");
