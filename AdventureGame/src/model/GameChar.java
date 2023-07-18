@@ -54,6 +54,4 @@ public abstract class GameChar {
      public void setMoney(int money) {
           this.money = money;
      }
-
-    
 }

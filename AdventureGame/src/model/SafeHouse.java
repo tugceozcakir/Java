@@ -1,17 +1,18 @@
 package model;
 
 public class SafeHouse extends NormalLoc {
+    public SafeHouse(Player player) {
+        super(player, "Safe House", 1);
+    }
 
-     public SafeHouse(Player player){
-          super(player, "Güvenli ev");
-     }
+    @Override
+    public boolean onLocation(){
+        System.out.println("******************************************************************************");
+        System.out.println("");
+        System.out.println("You're in the Safe House.");
+        System.out.println("Your health is fully restored!");
+        this.getPlayer().getCharacter().setHealth(this.getPlayer().getCharacter().getBeginningHealth());
 
-     @Override
-     boolean onLocation() {
-          System.out.println("Güvenli evdesiniz.");
-          System.out.println("Canınız yenilendi.");
-          return true;
-     }
-     
-     
+        return true;
+    }
 }

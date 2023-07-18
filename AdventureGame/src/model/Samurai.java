@@ -1,7 +1,7 @@
 package model;
 
-public class Samurai extends GameChar {
-     public Samurai(){
-          super(1, "Samurai", 5, 21, 15);
-     }
+public class Samurai extends Characters{
+    public Samurai(){
+        super(1, "Samurai", 5, 0, 21, 15);
+    }
 }

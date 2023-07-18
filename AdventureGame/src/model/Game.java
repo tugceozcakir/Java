@@ -3,17 +3,22 @@ package model;
 import java.util.Scanner;
 
 public class Game {
-     private Location location;
-     private Scanner input = new Scanner(System.in);
+    private Player player;
+    private Scanner scan = new Scanner(System.in);
 
-     public void start(){
-          System.out.println("Macera oyununa hoş geldiniz!");
-          System.out.println("Lütfen bir isim giriniz: ");
-          String playerName = input.nextLine();
+    public void start(){
 
-          Player player = new Player(playerName);
-          System.out.println("Sayın " + player.getName() + " bu karanlık ve sisli adaya hoş geldiniz.");
-          System.out.println("Burada yaşananların hepsi gerçek!");
-          player.selectChar();
-     }
+        System.out.println("Welcome Adventurer!");
+        System.out.print("Please write your name: ");
+        String playerName = scan.nextLine();
+
+        player = new Player(playerName);
+
+        System.out.println("Hi " + player.getPlayerName() + ", If you are ready, buckle up and start the adventure!!!");
+        System.out.println("Remember if you want to win you need to collect food, wood and water.");
+
+        player.pickChar();
+
+        player.pickLocation();
+    }
 }

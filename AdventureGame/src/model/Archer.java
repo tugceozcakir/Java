@@ -1,7 +1,7 @@
 package model;
 
-public class Archer extends GameChar {
-     public Archer(){
-          super(3, "Archer", 7, 18,20);
-     }
+public class Archer extends Characters {
+    public Archer(){
+        super(2, "Archer", 7, 0, 18, 20);
+    }
 }

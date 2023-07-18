@@ -1,7 +1,7 @@
 package model;
 
-public class Knight extends GameChar {
-     public Knight(){
-          super(2, "Knight", 8, 24, 5);
-     }
+public class Knight extends Characters{
+    public Knight(){
+        super(3,"Knight", 8, 0, 24, 5);
+    }
 }
