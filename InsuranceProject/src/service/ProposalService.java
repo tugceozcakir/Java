@@ -22,4 +22,13 @@ public class ProposalService {
         proposal.setDiscountPrice(discountPrice);
         return proposal;
     }
+
+    public BigDecimal getDiscountedPrice(Proposal proposal){
+        if(proposal.getDiscountPrice()!=null){
+            return proposal.getOfferPrice().subtract(proposal.getDiscountPrice());
+        }
+        else{
+            return proposal.getOfferPrice();
+        }
+    }
 }

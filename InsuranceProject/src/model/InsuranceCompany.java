@@ -19,6 +19,7 @@ public class InsuranceCompany {
 
     private ArrayList<PaymentMovement> paymentMovementList;
 
+
     public String getName() {
         return name;
     }
