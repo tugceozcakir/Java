@@ -15,9 +15,9 @@ public class Main {
         CustomerService customerService = new CustomerService();
         PolicyService policyService = new PolicyService();
         VehicleService vehicleService = new VehicleService();
-        AccidentService accidentService = new AccidentService();
         InsuranceRequestService insuranceRequestService = new InsuranceRequestService();
         ProposalService proposalService = new ProposalService();
+        AccidentService accidentService = new AccidentService();
 
         BankAccount customerBankAccount = bankAccountService.createBankAccount("Ziraat", "TR7364872374983",
                 new BigDecimal(10000));
@@ -35,9 +35,6 @@ public class Main {
 
         Customer customer = customerService.createCustomer("Egemen Kaya", CustomerTypeEnum.INDIVIDUAL);
 
-        LocalDate accidentDate = LocalDate.of(2023, Month.JULY, 12);
-        Accident accident = accidentService.createAccident(java.sql.Date.valueOf(accidentDate),"Kaza meydana geldi,",
-                new BigDecimal(5000.00), 6);
 
         Vehicle vehicle = vehicleService.createVehicle("Sedan", "14 ABC 123", "XYZ123456789",
                 "Toyota", 2022, ColorTypeEnum.BLACK);
@@ -59,7 +56,18 @@ public class Main {
         insuranceRequestService.addProposalToInsuranceRequest(proposal, insuranceRequest);
 
 
+        //vehicleService.addAccidentToVehicle(accident, vehicle);
+
+        LocalDate excidentDate = LocalDate.now();
+        Accident accident = accidentService.createAccident(excidentDate,"Trafik kazası gerçekleşti.", new BigDecimal(5000),
+                6);
+
         vehicleService.addAccidentToVehicle(accident, vehicle);
+
+
+
+
+
 
         insuranceCompanyService.addInsuranceToInsuranceCompany(insurance, insuranceCompany);
         insuranceCompanyService.addBankAccountToInsuranceCompany(insuranceCompanyBankAccount, insuranceCompany);
@@ -73,12 +81,12 @@ public class Main {
         customerService.addPolicyToCustomer(policy, customer);
         customerService.addInsuranceRequestToCustomer(customer, insuranceRequest);
 
-        //Homework
         customerService.acceptProposal(customer, proposal, insuranceRequest, agency, insuranceCompany);
 
+        System.out.println(proposal.getOfferPrice());
+        System.out.println(vehicle.getAccidentList());
+        System.out.println(accident.getDamagePrice());
         //System.out.println(agency.toString());
-        System.out.println(customer.getPaymentMovementList());
-        System.out.println(agency.getPaymentMovementList());
-        System.out.println(insuranceCompany.getPaymentMovementList());
+
     }
 }
