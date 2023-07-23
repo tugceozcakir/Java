@@ -72,7 +72,7 @@ public class Transcript {
                     .append("\n");
         }
 
-        result.append("GPA: ").append(String.format(Locale.US, "%.2f", this.GPA)).append("\n");
+        result.append("GPA: ").append(String.format("%.2f", this.GPA)).append("\n");
 
         return result.toString();
     }

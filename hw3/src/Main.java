@@ -5,7 +5,6 @@ import util.GradeTest;
 
 public class Main {
     public static void main(String[] args) {
-        GradeTest.main();
         CourseGrade courseGrade1 = new CourseGrade("CENG", 201, 4, Grade.C);
         CourseGrade courseGrade2 = new CourseGrade("CENG", 201, 4, Grade.A);
         CourseGrade courseGrade3 = new CourseGrade("CENG", 201, 4, Grade.C);
