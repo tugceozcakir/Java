@@ -92,11 +92,8 @@ public class CourseGrade {
 
     @Override
     public String toString() {
-        return "CourseGrade{" +
-                "courseDepartment='" + courseDepartment + '\'' +
-                ", courseCode=" + courseCode +
-                ", courseCredit=" + courseCredit +
-                ", gradeTaken=" + gradeTaken +
-                '}';
+        return "Department: " + courseDepartment +
+                " CourseCode: " + courseCode + " Credit: " + courseCredit +
+                " Grade: " + gradeTaken.name() + "\n";
     }
 }

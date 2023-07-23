@@ -16,7 +16,7 @@ public enum Grade {
         this.numericValue = numericValue;
     }
 
-    //Getter setter methods
+    //Getter methods
     public String getStringValue() {
         return stringValue;
     }

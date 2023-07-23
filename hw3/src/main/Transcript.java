@@ -61,19 +61,10 @@ public class Transcript {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        result.append("Student ID: ").append(this.studentId).append("\n");
-
-        for (CourseGrade courseGrade : this.courseGradeList) {
-            result.append("Department: ").append(courseGrade.getCourseDepartment())
-                    .append(" Code: ").append(courseGrade.getCourseCode())
-                    .append(" Credit: ").append(courseGrade.getCourseCredit())
-                    .append(" Grade: ").append(courseGrade.getGradeTaken().stringValue)
-                    .append("\n");
-        }
-
-        result.append("GPA: ").append(String.format("%.2f", this.GPA)).append("\n");
-
-        return result.toString();
+        return "Student ID: " + this.studentId + "\n" + this.courseGradeList.toString()
+                .replaceAll("\\[", "")
+                .replaceAll(", ", "")
+                .replaceAll("]", "")
+                + "GPA: " + String.format(Locale.US, "%.2f", this.GPA);
     }
 }
