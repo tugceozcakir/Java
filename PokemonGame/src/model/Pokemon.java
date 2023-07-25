@@ -47,8 +47,22 @@ public class Pokemon {
         this.type = type;
     }
 
-    public void specialAttac(){
+    public SpecialPower getSpecialPower() {
+        return specialPower;
+    }
 
+    public void setSpecialPower(SpecialPower specialPower) {
+        this.specialPower = specialPower;
+    }
+
+    public int specialAttack() {
+        if (getSpecialPower().getRemainingRights() > 0) {
+            this.specialPower.setRemainingRights(this.specialPower.getRemainingRights() - 1);
+            return this.damage + this.getSpecialPower().getExtraDamage();
+        } else {
+            System.out.println("You can not use special power!");
+            return 0;
+        }
     }
 
     @Override

@@ -13,6 +13,12 @@ public class Character {
         this.pokemonList = pokemonList;
     }
 
+    public Character(String name, SpecialPower specialPower){
+        this.name = name;
+        this.specialPower = specialPower;
+        this.pokemonList = new ArrayList<>();
+    }
+
     public String getName() {
         return name;
     }
@@ -35,5 +41,15 @@ public class Character {
 
     public void setPokemonList(ArrayList<Pokemon> pokemonList) {
         this.pokemonList = pokemonList;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "name='" + name + '\'' +
+                ", specialPower=" + specialPower +
+                ", pokemonList=" + pokemonList +
+                '}';
     }
 }

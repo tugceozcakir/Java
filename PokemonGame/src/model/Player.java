@@ -4,8 +4,14 @@ import java.util.ArrayList;
 
 public class Player {
     private String name;
-    private ArrayList<Character> characters;
+    private Character character;
     private boolean isWinner;
+
+
+    public Player(String name, Character character) {
+        this.name = name;
+        this.character = character;
+    }
 
     public String getName() {
         return name;
@@ -15,12 +21,12 @@ public class Player {
         this.name = name;
     }
 
-    public ArrayList<Character> getCharacters() {
-        return characters;
+    public Character getCharacter() {
+        return character;
     }
 
-    public void setCharacters(ArrayList<Character> characters) {
-        this.characters = characters;
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     public boolean isWinner() {
@@ -31,11 +37,12 @@ public class Player {
         isWinner = winner;
     }
 
+
     @Override
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
-                ", characters=" + characters +
+                ", character=" + character +
                 ", isWinner=" + isWinner +
                 '}';
     }

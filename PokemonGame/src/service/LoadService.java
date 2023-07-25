@@ -10,8 +10,8 @@ public class LoadService {
         SpecialPower strategy1 = new Strategy("Strategy", 4, 1);
         SpecialPower strategy2 = new Strategy("Strategy II", 3, 1);
 
-        Character ash = new Ash("Ash", strategy1, null);
-        Character brooke = new Brooke("Brooke", strategy2, null);
+        Character ash = new Ash("Ash", strategy1);
+        Character brooke = new Brooke("Brooke", strategy2);
 
         ArrayList<Character> characterList = new ArrayList<>();
         characterList.add(ash);
@@ -26,7 +26,7 @@ public class LoadService {
         SpecialPower earth = new Earth("Earth", 4, 3);
 
         Pokemon pokemon1 = new Pikachu("Pikachu", 100, 10, TypeEnum.ELECTRICY, electricty);
-        Pokemon pokemon2 = new Sqiurtle("Squirtle", 120, 8, TypeEnum.WATER, water);
+        Pokemon pokemon2 = new Sqiurtle("Squirtle", 15, 8, TypeEnum.WATER, water);
         Pokemon pokemon3 = new Charmander("Charmender", 90, 12, TypeEnum.FIRE, fire);
         Pokemon pokemon4 = new Balbausar("Balbausar", 140, 7, TypeEnum.EARTH, earth);
 
@@ -38,4 +38,5 @@ public class LoadService {
 
         return pokemonList;
     }
+
 }
