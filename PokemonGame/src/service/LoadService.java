@@ -26,7 +26,7 @@ public class LoadService {
         SpecialPower earth = new Earth("Earth", 4, 3);
 
         Pokemon pokemon1 = new Pikachu("Pikachu", 100, 10, TypeEnum.ELECTRICY, electricty);
-        Pokemon pokemon2 = new Sqiurtle("Squirtle", 15, 8, TypeEnum.WATER, water);
+        Pokemon pokemon2 = new Sqiurtle("Squirtle", 150, 8, TypeEnum.WATER, water);
         Pokemon pokemon3 = new Charmander("Charmender", 90, 12, TypeEnum.FIRE, fire);
         Pokemon pokemon4 = new Balbausar("Balbausar", 140, 7, TypeEnum.EARTH, earth);
 

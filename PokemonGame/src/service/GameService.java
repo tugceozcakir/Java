@@ -46,7 +46,8 @@ public class GameService {
     }
 
     public boolean healthCheck(Player player){
-        if(player.getCharacter().getPokemonList().get(0).getHealth() > 0){
+        Pokemon currentPokemon = player.getCharacter().getPokemonList().get(0);
+        if(currentPokemon.getHealth() > 0){
             System.out.println(player.toString());
             System.out.println("Oyun devam ediyor.");
             return true;
