@@ -5,7 +5,7 @@ import util.Grade;
 public class CourseGrade {
     private String courseDepartment;
     private int courseCode;
-    private double courseCredit;
+    private int courseCredit;
     private Grade gradeTaken;
 
     public CourseGrade(String courseDepartment) {
@@ -60,7 +60,7 @@ public class CourseGrade {
         return courseCredit;
     }
 
-    public void setCourseCredit(double courseCredit) {
+    public void setCourseCredit(int courseCredit) {
         if(courseCredit == 3 || courseCredit == 4){
             this.courseCredit = courseCredit;
         } else {
