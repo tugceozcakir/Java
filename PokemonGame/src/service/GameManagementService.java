@@ -51,6 +51,13 @@ public class GameManagementService {
         String player1Name = input.next();
         Player player1 = playerService.createPlayer(player1Name, player1Character);
 
+        characterList.remove(player1CharacterIndex);
+
+        System.out.println("------Characters------");
+        for (int i = 0; i < characterList.size(); i++) {
+            System.out.println((i + 1) + "- " + characterList.get(i).toString());
+        }
+
         System.out.print("\nOyuncu 2, bir karakter seçin (1-" + characterList.size() + "): ");
         int player2CharacterIndex = input.nextInt() - 1;
         Character player2Character = characterList.get(player2CharacterIndex);
@@ -70,6 +77,13 @@ public class GameManagementService {
         System.out.println("\nOyuncu 1, bir Pokemon seçin (1-" + pokemonList.size() + "): ");
         int player1PokemonIndex = input.nextInt() - 1;
         player1.getCharacter().getPokemonList().add(pokemonList.get(player1PokemonIndex));
+
+        pokemonList.remove(player1PokemonIndex);
+
+        System.out.println("\n------Pokemon--------");
+        for (int i = 0; i < pokemonList.size(); i++) {
+            System.out.println((i + 1) + "- " + pokemonList.get(i).toString());
+        }
 
         System.out.println("Oyuncu 2, bir Pokemon seçin (1-" + pokemonList.size() + "): ");
         int player2PokemonIndex = input.nextInt() - 1;
