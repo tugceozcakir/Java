@@ -6,17 +6,22 @@ public class Pokemon {
     private int damage;
     private TypeEnum type;
     private SpecialPower specialPower;
+    private int maxHealth;
 
-    public Pokemon(String name, int health, int damage, TypeEnum type, SpecialPower specialPower) {
+    public Pokemon(String name, int health, int damage, TypeEnum type, SpecialPower specialPower, int maxHealth) {
         this.name = name;
         this.health = health;
         this.damage = damage;
         this.type = type;
         this.specialPower = specialPower;
+        this.maxHealth = maxHealth;
     }
 
     public String getName() {
         return name;
+    }
+    public int getMaxHealth() {
+        return maxHealth;
     }
 
     public void setName(String name) {

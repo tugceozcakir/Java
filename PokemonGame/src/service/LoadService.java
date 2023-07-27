@@ -4,6 +4,8 @@ import model.*;
 import model.Character;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class LoadService {
     public ArrayList<Character> loadCharacters(){
@@ -20,15 +22,17 @@ public class LoadService {
     }
 
     public ArrayList<Pokemon> loadPokemons(){
+        WeatherService weatherService = new WeatherService();
+
         SpecialPower electricty = new Electricty("Electricty", 3, 3);
         SpecialPower water = new Water("Water", 1, 3);
         SpecialPower fire = new Fire("Fire", 5, 3);
         SpecialPower earth = new Earth("Earth", 4, 3);
 
-        Pokemon pokemon1 = new Pikachu("Pikachu", 100, 10, TypeEnum.ELECTRICY, electricty);
-        Pokemon pokemon2 = new Sqiurtle("Squirtle", 150, 8, TypeEnum.WATER, water);
-        Pokemon pokemon3 = new Charmander("Charmender", 90, 12, TypeEnum.FIRE, fire);
-        Pokemon pokemon4 = new Balbausar("Balbausar", 140, 7, TypeEnum.EARTH, earth);
+        Pokemon pokemon1 = new Pikachu("Pikachu", 100, 10, TypeEnum.ELECTRICY, electricty, 100);
+        Pokemon pokemon2 = new Sqiurtle("Squirtle", 150, 8, TypeEnum.WATER, water, 150);
+        Pokemon pokemon3 = new Charmander("Charmender", 90, 12, TypeEnum.FIRE, fire, 90);
+        Pokemon pokemon4 = new Balbausar("Balbausar", 140, 7, TypeEnum.EARTH, earth, 140);
 
         ArrayList<Pokemon> pokemonList = new ArrayList<>();
         pokemonList.add(pokemon1);
@@ -38,5 +42,23 @@ public class LoadService {
 
         return pokemonList;
     }
+
+    public Pokemon getWeakestPokemonForPlayer(ArrayList<Pokemon> pokemonList) {
+        if (pokemonList.isEmpty()) {
+            //Null if list is empty
+            return null;
+        }
+        // The first Pokemon is the weakest for now
+        Pokemon weakestPokemon = pokemonList.get(0);
+
+        for (Pokemon pokemon : pokemonList) {
+            if (pokemon.getMaxHealth() < weakestPokemon.getMaxHealth()) {
+                // Found a weaker Pokemon, update
+                weakestPokemon = pokemon;
+            }
+        }
+        return weakestPokemon;
+    }
+
 
 }

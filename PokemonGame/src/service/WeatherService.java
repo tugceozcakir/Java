@@ -1,5 +1,6 @@
 package service;
 
+import model.Player;
 import model.Pokemon;
 import model.WeatherEnum;
 
@@ -8,57 +9,77 @@ import java.util.List;
 import java.util.Random;
 
 public class WeatherService {
-
-    public WeatherEnum createWeatherEnum() {
-
-        Random randomWeather = new Random();
-        List<WeatherEnum> weatherList = new ArrayList<>();
-        for (WeatherEnum weather : WeatherEnum.values()) {
-            weatherList.add(weather);
-        }
-        int index = randomWeather.nextInt(4);
-        return weatherList.get(index);
+    public WeatherEnum getWeather() {
+        int random = (int) (Math.random() * 4);
+        return switch (random) {
+            case 1 -> WeatherEnum.RAINY;
+            case 2 -> WeatherEnum.WINDY;
+            case 3 -> WeatherEnum.HOT;
+            default -> WeatherEnum.SUNNY;
+        };
     }
-
-    public void EffectOfWeatherOnPower(Pokemon pokemon, WeatherEnum weatherEnum) {
-
-        switch (pokemon.getType().toString()) {
-            case "ELECTRICY" -> {
+    public void effectOfWeatherOnPower(Pokemon pokemon, WeatherEnum weatherEnum) {
+        switch (pokemon.getType()) {
+            case ELECTRICY:
                 if (weatherEnum == WeatherEnum.RAINY) {
-                    pokemon.setDamage((pokemon.getDamage() * 15 / 10));
-                    System.out.println("Pikachu yağmurlu havada güç kazandı.");
+                    //Electric-type Pokemon power increases in rainy weather
+                    pokemon.setDamage(pokemon.getDamage() * 2);
+                    System.out.println(pokemon.getName() + " yağmurlu havada güç kazandı.");
                 } else if (weatherEnum == WeatherEnum.WINDY) {
-                    pokemon.setDamage((pokemon.getDamage() * 5 / 10));
-                    System.out.println("Pikachu rüzgarlı havada güç kaybetti.");
+                    //Electric type Pokemon power decreases in windy weather
+                    pokemon.setDamage(pokemon.getDamage() / 2);
+                    System.out.println(pokemon.getName() + " rüzgarlı havada güç kaybetti.");
                 }
-            }
-            case "WATER" -> {
+                break;
+            case WATER:
                 if (weatherEnum == WeatherEnum.RAINY) {
-                    pokemon.setDamage(pokemon.getDamage() * 15 / 10);
-                    System.out.println("Squirtle yağmurlu havada güç kazandı.");
+                    //Water-type Pokemon strength increases in rainy weather
+                    pokemon.setDamage(pokemon.getDamage() * 2);
+                    System.out.println(pokemon.getName() + " yağmurlu havada güç kazandı.");
                 } else if (weatherEnum == WeatherEnum.SUNNY) {
-                    pokemon.setDamage(pokemon.getDamage() * 5 / 10);
-                    System.out.println("Squirtle güneşli havada güç kaybetti.");
+                    //Water-type Pokemon strength decreases in sunny weather
+                    pokemon.setDamage(pokemon.getDamage() / 2);
+                    System.out.println(pokemon.getName() + " güneşli havada güç kaybetti.");
                 }
-            }
-            case "FIRE" -> {
+                break;
+            case FIRE:
                 if (weatherEnum == WeatherEnum.HOT) {
-                    pokemon.setDamage(pokemon.getDamage() * 15 / 10);
-                    System.out.println("Charmander sıcak havada güç kazandı.");
+                    //Fire-type Pokemon strength increases in hot weather
+                    pokemon.setDamage(pokemon.getDamage() * 2);
+                    System.out.println(pokemon.getName() + " sıcak havada güç kazandı.");
                 } else if (weatherEnum == WeatherEnum.RAINY) {
-                    pokemon.setDamage(pokemon.getDamage() * 5 / 10);
-                    System.out.println("Charmander yağmurlu havada güç kaybetti.");
+                    //Fire-type Pokemon strength decreases in rainy weather
+                    pokemon.setDamage(pokemon.getDamage() / 2);
+                    System.out.println(pokemon.getName() + " yağmurlu havada güç kaybetti.");
                 }
-            }
-            case "WIND" -> {
+                break;
+            case EARTH:
                 if (weatherEnum == WeatherEnum.WINDY) {
-                    pokemon.setDamage(pokemon.getDamage() * 15 / 10);
-                    System.out.println("Bulbasaur rüzgarlı havada güç kazandı.");
+                    //Ground type Pokemon strength increases in windy weather
+                    pokemon.setDamage(pokemon.getDamage() * 2);
+                    System.out.println(pokemon.getName() + " rüzgarlı havada güç kazandı.");
                 } else if (weatherEnum == WeatherEnum.HOT) {
-                    pokemon.setDamage(pokemon.getDamage() * 5 / 10);
-                    System.out.println("Bulbasaur sıcak havada güç kaybetti.");
+                    //Earth type Pokemon strength decreases in hot weather
+                    pokemon.setDamage(pokemon.getDamage() / 2);
+                    System.out.println(pokemon.getName() + " sıcak havada güç kaybetti.");
                 }
-            }
+                break;
+            default:
+                break;
+        }
+    }
+    public void applyWeatherEffects(Player player1, Player player2) {
+        WeatherEnum weatherEnum = getWeather();
+        System.out.println("Weather is " + weatherEnum + "!\n");
+
+        // Apply weather effects on player1's Pokemon
+        for (Pokemon pokemon : player1.getCharacter().getPokemonList()) {
+            effectOfWeatherOnPower(pokemon, weatherEnum);
+        }
+
+        // Apply weather effects on player2's Pokemon
+        for (Pokemon pokemon : player2.getCharacter().getPokemonList()) {
+            effectOfWeatherOnPower(pokemon, weatherEnum);
         }
     }
 }

@@ -3,6 +3,7 @@ package service;
 import model.Character;
 import model.Player;
 import model.Pokemon;
+import model.WeatherEnum;
 
 public class GameService {
 
