@@ -1,40 +1,24 @@
 package model;
 
-public class MarioBaseCharacter {
-    private String name;
+public class MarioBaseCharacter extends BaseCharacter {
     private int health;
-    private GrowthCycleEnum powers;
+    private GrowthCycleEnum growthCycleEnum;
     private int length;
     private boolean immortality;
     private int remainingLife;
+
     private Coordinate coordinate;
 
-    public MarioBaseCharacter(String name, int health, GrowthCycleEnum powers, int length, boolean immortality, int remainingLife, Coordinate coordinate) {
-        this.name = name;
+
+    public MarioBaseCharacter(String name, int health, GrowthCycleEnum growthCycleEnum, int length, boolean immortality, int remainingLife, Coordinate coordinate) {
+        super(name);
         this.health = health;
-        this.powers = powers;
+        this.growthCycleEnum = growthCycleEnum;
         this.length = length;
         this.immortality = immortality;
         this.remainingLife = remainingLife;
         this.coordinate = coordinate;
     }
-
-    public Coordinate getCoordinate() {
-        return coordinate;
-    }
-
-    public void setCoordinate(Coordinate coordinate) {
-        this.coordinate = coordinate;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getHealth() {
         return health;
     }
@@ -43,12 +27,12 @@ public class MarioBaseCharacter {
         this.health = health;
     }
 
-    public GrowthCycleEnum getPowers() {
-        return powers;
+    public GrowthCycleEnum getGrowthCycleEnum() {
+        return growthCycleEnum;
     }
 
-    public void setPowers(GrowthCycleEnum powers) {
-        this.powers = powers;
+    public void setGrowthCycleEnum(GrowthCycleEnum growthCycleEnum) {
+        this.growthCycleEnum = growthCycleEnum;
     }
 
     public int getLength() {
@@ -75,12 +59,19 @@ public class MarioBaseCharacter {
         this.remainingLife = remainingLife;
     }
 
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
+
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
     @Override
     public String toString() {
         return "MarioBaseCharacter{" +
-                "name='" + name + '\'' +
                 ", health=" + health +
-                ", powers=" + powers +
+                ", growthCycleEnum=" + growthCycleEnum +
                 ", length=" + length +
                 ", immortality=" + immortality +
                 ", remainingLife=" + remainingLife +

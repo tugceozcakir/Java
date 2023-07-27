@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c9ad8e8-fabf-4ead-899d-904d648da801" name="Changes" comment="" />
+    <list default="true" id="9c9ad8e8-fabf-4ead-899d-904d648da801" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../PokemonGame/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PokemonGame/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/AmazonMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/AmazonMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/FireRotatingChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FireRotatingChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/FlyingTurtle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/FlyingTurtle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Map.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Mario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Mario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/MarioBaseCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/MarioBaseCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Raptiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Raptiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Turtles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Turtles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Villain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Villain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/LoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/LoadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/interfaces/ILoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/interfaces/ILoadService.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,13 +43,13 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "onboarding.tips.debug.path": "/Users/tugceozcakir/Desktop/Java/SuperMarioGame/src/Main.java"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/tugceozcakir/Desktop/Java/SuperMarioGame/src/Main.java&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

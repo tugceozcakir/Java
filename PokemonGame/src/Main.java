@@ -110,7 +110,6 @@ public class Main {
 
         int option = input.nextInt();
 
-        // Seçime göre saldırı türünü belirle ve saldırıyı yap
         if (option == 1) {
             gameService.attack(attacker, defender, false, false);
         } else if (option == 2) {
@@ -119,4 +118,5 @@ public class Main {
             gameService.attack(attacker, defender, false, true);
         }
     }
+
 }

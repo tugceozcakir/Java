@@ -1,8 +1,7 @@
 package model;
 
-public class Turtles extends MarioBaseCharacter{
-
-    public Turtles(String name, int health, GrowthCycleEnum powers, int length, boolean immortality, int remainingLife, Coordinate coordinate) {
-        super(name, health, powers, length, immortality, remainingLife, coordinate);
+public class Turtles extends Villain{
+    public Turtles(String name, int damage, boolean isMortal, int health, MoveTypeEnum moveTypeEnum, Coordinate coordinate) {
+        super(name, damage, isMortal, health, moveTypeEnum, coordinate);
     }
 }
