@@ -133,7 +133,6 @@ public class GameManagementService {
                     System.out.println(player2.getName() + " oyunu kaybetti.");
                     int initialWinnerHealth = player1.getCharacter().getPokemonList().get(0).getHealth();
 
-                    player1.getCharacter().getPokemonList().get(0).setHealth(player1.getCharacter().getPokemonList().get(0).getHealth());
                     player1.getCharacter().getPokemonList().set(0, player2.getCharacter().getPokemonList().get(0));
                     player1.getCharacter().getPokemonList().get(0).setHealth(initialWinnerHealth);
 
