@@ -28,7 +28,7 @@ public class CourseGrade {
         setCourseCredit(courseCredit);
         setGradeTaken(gradeTaken);
     }
-
+    
     public String getCourseDepartment() {
         return courseDepartment;
     }
